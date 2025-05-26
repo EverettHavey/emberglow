@@ -22,7 +22,107 @@
         </nav>
     </header>
     <main>
+        <section class="hero-section">
+        <div class="hero-content">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="videos/featured-game-trailer.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <img src="images/featured-game-hero.jpg" alt="Epic Game Screenshot" class="hero-fallback-image">
 
+            <div class="hero-text">
+                <h2>Our Latest Adventure: The Emberfall Chronicle</h2>
+                <p>Unleash the magic within and embark on an unforgettable journey.</p>
+                <a href="#games" class="btn btn-primary">Discover the Game</a>
+                <a href="https://www.youtube.com/yourtrailerlink" target="_blank" class="btn btn-secondary">Watch Trailer</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="games-portfolio">
+        <h2>Our Games</h2>
+        <div class="game-grid">
+            <article class="game-card">
+                <img src="images/game1-thumbnail.jpg" alt="Game 1 Thumbnail">
+                <h3>The Emberfall Chronicle</h3>
+                <p>An epic fantasy RPG where choices shape your destiny.</p>
+                <a href="game-detail-emberfall.html" class="btn btn-small">Learn More</a>
+            </article>
+            <article class="game-card">
+                <img src="images/game2-thumbnail.jpg" alt="Game 2 Thumbnail">
+                <h3>Nebula Drifters</h3>
+                <p>Fast-paced arcade action in the depths of space.</p>
+                <a href="game-detail-nebula.html" class="btn btn-small">Learn More</a>
+            </article>
+            <article class="game-card">
+                <img src="images/game3-thumbnail.jpg" alt="Game 3 Thumbnail">
+                <h3>Whispering Woods</h3>
+                <p>A serene puzzle adventure in an enchanted forest.</p>
+                <a href="game-detail-woods.html" class="btn btn-small">Learn More</a>
+            </article>
+            </div>
+    </section>
+
+    <section id="about-us" class="about-us-section">
+        <h2>About Emberglow Studios</h2>
+        <p class="studio-mission">
+            Emberglow Studios is an independent game development company dedicated to crafting
+            immersive and memorable gaming experiences. We believe in the power of storytelling
+            and innovative gameplay to transport players to new worlds.
+        </p>
+        <p>
+            Founded in 2025, Emberglow Studios has grown from a small passionate team into a
+            creative hub, constantly pushing the boundaries of interactive entertainment.
+        </p>
+    </section>
+
+    <section class="news-section">
+        <h2>Latest News</h2>
+        <div class="news-feed">
+            <article class="news-post">
+                <h3>Emberfall Chronicle Launches Next Month!</h3>
+                <p class="post-meta">May 20, 2025</p>
+                <p>We're thrilled to announce the official release date for The Emberfall Chronicle...</p>
+                <a href="news-post-1.html" class="read-more">Read More</a>
+            </article>
+            <article class="news-post">
+                <h3>Patch 1.2 for Nebula Drifters Released!</h3>
+                <p class="post-meta">April 15, 2025</p>
+                <p>Dive back into space with new ships, levels, and bug fixes...</p>
+                <a href="news-post-2.html" class="read-more">Read More</a>
+            </article>
+            </div>
+        <div class="view-all-news">
+            <a href="news.html" class="btn btn-secondary">View All News</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>Have a question, feedback, or a business inquiry? We'd love to hear from you!</p>
+        <div class="contact-info">
+            <p><strong>General Inquiries:</strong> <a href="mailto:info@emberglowstudios.com">info@emberglowstudios.com</a></p>
+            <p><strong>Press/Business:</strong> <a href="mailto:press@emberglowstudios.com">press@emberglowstudios.com</a></p>
+            <p><strong>Support:</strong> <a href="mailto:support@emberglowstudios.com">support@emberglowstudios.com</a></p>
+        </div>
+        <div class="social-links">
+            <h3>Follow Us:</h3>
+            <ul>
+                <li><a href="#" target="_blank"><img src="images/icon-twitter.png" alt="Twitter"></a></li>
+                <li><a href="#" target="_blank"><img src="images/icon-discord.png" alt="Discord"></a></li>
+                <li><a href="#" target="_blank"><img src="images/icon-youtube.png" alt="YouTube"></a></li>
+                </ul>
+        </div>
+    </section>
+
+    <section class="newsletter-cta">
+        <h2>Stay Updated with Emberglow!</h2>
+        <p>Join our newsletter for exclusive sneak peeks, game updates, and community news.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </section>
     </main>
     <footer>
         <p>&copy; <span id="year"></span>Emberglow Studios</p>

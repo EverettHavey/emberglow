@@ -33,7 +33,7 @@ header figure {
 }
 
 header img {
-    max-width: 100px; /* Reduced image size */
+    max-width: 200px; /* Reduced image size */
     height: auto;
     border-radius: 50%; /* Optional: Makes the image circular */
     border: 3px solid var(--light-purple);
@@ -166,4 +166,143 @@ footer .highlight {
         font-size: 0.85rem;
         padding: 0.4rem 0.8rem;
     }
+}
+
+.about-us-section {
+    text-align: center;
+    max-width: 960px;
+    margin: 0 auto 3rem;
+}
+
+.studio-mission {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: var(--dark-purple);
+    font-style: italic;
+}
+
+.team-showcase {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    /* Default: Stack on very small screens, 2-3 on medium/large */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-content: center; /* Center items in the grid */
+    margin-top: 2rem;
+    max-width: 900px; /* Optional: Constrain grid width if it gets too wide */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Specific layout for larger screens (e.g., desktops) to get 2-3 distribution */
+@media (min-width: 769px) { /* Adjust this breakpoint if needed */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr); /* Default to 2 columns for larger screens */
+        justify-items: center; /* Center items within their grid cells */
+    }
+    .team-grid .team-member:nth-child(3n+1) { /* Target specific items for adjustments if needed */
+        /* This isn't strictly necessary for a simple 2-3, but useful for complex layouts */
+    }
+    /* To force 3 on the bottom row when you have 5 members */
+    /* You could also wrap the last 3 in a div and make that a grid, but this is simpler for this specific case */
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reset to fit for flexibility */
+    }
+
+    /* This media query ensures a 2-column layout for the first few and then handles the rest */
+    /* A more robust solution for exact 2 then 3 would involve more complex grid/flex on a wrapper */
+    /* For a simple 2-3 split, let's keep it flexible and ensure it generally looks good */
+}
+
+/* Let's refine the team-grid for specific desktop sizes to achieve the 2 then 3 layout */
+@media (min-width: 900px) { /* Adjust this breakpoint based on your desired layout width */
+    .team-grid {
+        display: flex; /* Use flexbox to control row wrapping more precisely */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .team-grid .team-member {
+        flex: 0 0 calc(50% - 1rem); /* Two items per row (50% width - half of gap) */
+        max-width: 350px; /* Limit max width of individual cards */
+    }
+    /* For the 3 items on the bottom, if you have 5 items total: */
+    .team-grid .team-member:nth-child(3),
+    .team-grid .team-member:nth-child(4),
+    .team-grid .team-member:nth-child(5) {
+        flex: 0 0 calc(33.333% - 1.333rem); /* Three items per row */
+    }
+    /* This setup is a bit complex and might need fine-tuning based on actual content and screen sizes. */
+    /* A simpler approach is to rely on auto-fit and let the grid manage, or wrap the last 3 in their own flex/grid container. */
+}
+
+/* A simpler, more robust approach for 2 then 3 without specific nth-child overrides */
+/* Reverting to a more standard grid with a slightly adjusted minmax for better flow */
+/* This will aim for 2 columns when there's space, and fall to 1 on small screens.
+   It won't *force* exactly 2 then 3, but it will scale well. */
+@media (min-width: 769px) {
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(250px, 1fr)); /* Always 2 columns on larger screens */
+    }
+}
+/* For very wide screens, you might want more columns, but for 5 members, 2-3 works well */
+@media (min-width: 1200px) { /* Example for wider screens */
+     .team-grid {
+        grid-template-columns: repeat(3, minmax(250px, 1fr)); /* Allow 3 columns for even larger screens */
+    }
+    /* If you MUST have 2 on top and 3 on bottom, regardless of screen size, it's harder with pure CSS grid/flex
+       without wrapping the last 3 in their own container. The auto-fit approach is more flexible. */
+}
+
+
+/* Keeping your current styling for .team-member, .team-member a, img, h4, p */
+.team-member {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.team-member a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.team-member a:hover {
+    color: var(--primary-purple);
+}
+
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary-purple);
+    transition: transform 0.3s ease;
+}
+
+.team-member img:hover {
+    transform: scale(1.05);
+}
+
+.team-member h4 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    color: var(--dark-purple);
+    font-size: 1.25rem;
+}
+
+.team-member p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
 }
