@@ -13,6 +13,8 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-purple);
+    /* Prevent horizontal scrollbars on mobile from accidental overflow */
+    overflow-x: hidden;
 }
 
 header {
@@ -31,10 +33,12 @@ header figure {
 }
 
 header img {
-    max-width: 200px; /* Reduced image size */
+    max-width: 100px; /* Reduced image size */
     height: auto;
     border-radius: 50%; /* Optional: Makes the image circular */
     border: 3px solid var(--light-purple);
+    display: block; /* Ensures image behaves well in flex container */
+    margin: 0 auto; /* Center image if it's smaller than its container */
 }
 
 header h1 {
@@ -50,7 +54,8 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; /* Space between desktop nav items */
+    flex-wrap: wrap; /* Allow items to wrap to next line if space is limited */
 }
 
 nav a {
@@ -59,6 +64,7 @@ nav a {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent links from breaking onto multiple lines */
 }
 
 nav a:hover {
@@ -74,6 +80,7 @@ main {
     max-width: 960px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 footer {
@@ -91,4 +98,72 @@ footer p {
 footer .highlight {
     font-weight: bold;
     color: var(--light-purple);
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For screens smaller than 768px (e.g., tablets in portrait) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem; /* Slightly smaller heading */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        gap: 5px; /* Reduce gap between stacked items */
+        align-items: center; /* Center stacked nav items */
+    }
+
+    nav a {
+        padding: 0.7rem 1.5rem; /* Adjust padding for stacked items */
+        display: block; /* Make links take full width of their container */
+        width: fit-content; /* Make the link only as wide as its content */
+        margin: 0 auto; /* Center the link itself */
+    }
+
+    main {
+        padding: 1.5rem; /* Slightly less padding on smaller screens */
+        margin: 0.5rem auto; /* Adjust margin */
+        max-width: 95%; /* Allow main to take more width on smaller screens, leaving small margins */
+    }
+}
+
+/* For screens smaller than 480px (e.g., mobile phones) */
+@media (max-width: 480px) {
+    header img {
+        max-width: 70px; /* Even smaller logo on very small screens */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Further reduce heading size */
+    }
+
+    nav a {
+        padding: 0.5rem 1rem; /* Smaller padding for mobile links */
+        font-size: 0.95rem; /* Slightly smaller font size for navigation */
+    }
+
+    main {
+        padding: 1rem; /* More compact padding for mobile */
+        margin: 0; /* Remove side margins to allow full width on mobile */
+        max-width: 100%; /* Ensure main content uses full width */
+        border-radius: 0; /* Remove border-radius on main for full-width look */
+        box-shadow: none; /* Remove box-shadow for a cleaner look on mobile */
+    }
+
+    footer {
+        padding: 0.8rem 1rem; /* Smaller footer padding with some side space */
+        font-size: 0.85rem; /* Smaller font size for footer text */
+    }
+}
+
+/* Very small screens (e.g., iPhone 5/SE, older Android) */
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+    nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
