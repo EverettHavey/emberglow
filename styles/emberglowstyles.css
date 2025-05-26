@@ -31,7 +31,7 @@ header figure {
 }
 
 header img {
-    max-width: 100px; /* Reduced image size */
+    max-width: 200px; /* Reduced image size */
     height: auto;
     border-radius: 50%; /* Optional: Makes the image circular */
     border: 3px solid var(--light-purple);
